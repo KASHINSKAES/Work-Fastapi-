@@ -1,12 +1,7 @@
-
-from sqlalchemy.orm import Session
-import uuid
 from fastapi import FastAPI, Query, Path,Body,Depends
-from schemas import Student,Student_filter
+from schemas import Student
 from fastapi.middleware.cors import CORSMiddleware
 import psycopg2
-from starlette.responses import FileResponse , JSONResponse
-import uvicorn
 app = FastAPI()
 origins = [""]
 
