@@ -1,7 +1,10 @@
 version: '3'
 services:
   fastapi:
-    build: app
+    build: 
+      command: uvicorn main:app --reload
+      volumes:
+        - .:/app
   ports:
     - "8000:8000"
   db:
