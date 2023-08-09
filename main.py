@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Query, Path,Body,Depends
 from schemas import Student
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 app = FastAPI()
 origins = [""]
 import psycopg2
@@ -33,7 +34,9 @@ cursor = con.cursor()
 # @app.options('/get_by_student_id',status_code=200)
 # def create_student_options(item: Student):
 #     return "родили"
-
+@app.get("/")
+def root():
+    return {"message": "Hello METANIT.COM"}
 
 @app.post('/create_student',status_code=200)
 def create_student(item: Student):
